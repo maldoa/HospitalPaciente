@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">CaretaPaciente</string>
+
+
+    <string name="boton_comenzar">Comenzar</string>
+    <string name="boton_registrarme">Registrarme</string>
+
+
+    <string name="texto_corazon">Monitorear tu estado de salud según tus sintomas.</string>
+    <string name="texto_estetoscopio">Ayudar a todos los profesionales que trabajan por tu salud.</string>
+    <string name="texto_base">Generar un registro de tu estado de salud.</string>
+
+    <string name="titulo1">¡Bienvenido!</string>
+    <string name="subtitulo1">Gracias por ayudar a México</string>
+    <string name="subtitulo2">Con esta App podrás:</string>
+    <string name="subtitulo3">Ayúdanos a ayudarte</string>
+
+    <string name="descripcion_registro">Registrate con tu número teléfonico y correo electrónico,
+        nos ayudaras a poder entender mejor tu estado medico y el desarrollo del COVID-19 en México,
+        también podríamos contactarte de forma directa en el caso de que necesiten ayuda.</string>
 </resources>
