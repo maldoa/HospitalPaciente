@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo2"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayoutFilaUno"
+        android:layout_width="match_parent"
+        android:layout_height="80sp"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/fondo1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/fondo_2" />
+
+        <TextView
+            android:id="@+id/subtitulo4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="clip_horizontal|center|center_horizontal|center_vertical"
+            android:paddingTop="10sp"
+            android:text="Monitoreo de tu salud"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/fondo2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/fondo_2" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutFilaDos"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/descripcionRegistroDatos"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:gravity="clip_horizontal|center|center_horizontal|center_vertical"
+            android:text="Se visualizan los datos de los sensores del paciente."
+            android:textSize="18sp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutFilaTres"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="Oxímetro:"
+            android:textSize="24sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="120sp"
+                android:hint="%" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutFilaCinco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutFilaTres"
+            android:layout_width="match_parent"
+            android:layout_height="60sp"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="Capnografía:"
+                android:textSize="24sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80sp"
+                    android:hint=" mmHg" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutFilaTres"
+            android:layout_width="match_parent"
+            android:layout_height="60sp"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="Temperatura:"
+                android:textSize="24sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80sp"
+                    android:hint="°C" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutFilaDos"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_weight="0"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutFila66T777res"
+            android:layout_width="match_parent"
+            android:layout_height="60sp"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="Frecuencia cardiaca:"
+                android:textSize="24sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="lpm" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutFila66T777res"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="Presión arterial :"
+                android:textSize="24sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40sp"
+                    android:hint="mmHg" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayoutFilaSeis"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:paddingTop="50sp">
+
+        <ImageView
+            android:id="@+id/fondo3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/fondo_2" />
+
+        <Button
+            android:id="@+id/botonIniciarSesion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@color/colorPrimary"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:text="Actualizar"
+            android:textColor="@color/colorAccent" />
+
+        <ImageView
+            android:id="@+id/fondo4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            app:srcCompat="@drawable/fondo_2" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

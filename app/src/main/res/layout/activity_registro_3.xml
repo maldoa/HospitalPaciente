@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     android:background="@color/fondo2"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".Registro">
 
 
     <LinearLayout
         android:id="@+id/linearLayoutFilaUno"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight=".5"
         android:orientation="horizontal">
 
         <ImageView
@@ -27,11 +27,11 @@
             android:id="@+id/titulo2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:gravity="clip_horizontal|center|center_horizontal|center_vertical"
             android:paddingTop="10sp"
             android:shadowColor="#000000"
-            android:text="@string/titulo1"
+            android:text="@string/titulo2"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -50,25 +50,26 @@
         android:layout_height="wrap_content"
         android:gravity="clip_horizontal|center|center_horizontal|center_vertical"
         android:paddingTop="10sp"
-        android:text="@string/subtitulo3"
+        android:text="@string/subtitulo4"
         android:textSize="30sp"
         android:textStyle="bold" />
 
     <LinearLayout
         android:id="@+id/linearLayoutFilaDos"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
         android:orientation="horizontal">
 
 
         <TextView
             android:id="@+id/descripcionRegistroDatos"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20sp"
+            android:layout_weight="0"
             android:gravity="clip_horizontal|center|center_horizontal|center_vertical"
-            android:text="@string/descripcion_registro"
+            android:text="@string/descripcion_historial_clinico"
             android:textSize="18sp"
             android:textStyle="normal" />
 
@@ -78,28 +79,77 @@
         android:id="@+id/linearLayoutFilaTres"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
-        android:orientation="horizontal">
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
+        android:layout_weight="3.5"
+        android:orientation="vertical">
 
 
-        <ImageView
-            android:id="@+id/iconoLlamar"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            app:srcCompat="@drawable/call" />
+        <CheckBox
+            android:id="@+id/datoDiabetes"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/dato_diabetes" />
 
+        <CheckBox
+            android:id="@+id/datoCancer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/dato_cancer" />
+
+        <CheckBox
+            android:id="@+id/datoAsma"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/dato_asma" />
+
+        <CheckBox
+            android:id="@+id/datoVIH"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/dato_vih" />
+
+        <CheckBox
+            android:id="@+id/datoHAS"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/dato_has" />
+
+        <CheckBox
+            android:id="@+id/datoEPOC"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/dato_epoc" />
+
+        <CheckBox
+            android:id="@+id/datoEmbarazo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/dato_embarazo" />
+
+        <CheckBox
+            android:id="@+id/datoArtritis"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/dato_artritis" />
+
+        <CheckBox
+            android:id="@+id/datoEnfermedadAutoinmune"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/dato_enfermedad_autoinmune" />
 
     </LinearLayout>
 
-
-
-    <LinearLayout
-        android:id="@+id/linearLayoutFilaCuatro"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"/>
 
     <LinearLayout
         android:id="@+id/linearLayoutFilaCinco"
@@ -119,11 +169,11 @@
             android:id="@+id/botonComenzar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
             android:layout_weight="2"
             android:background="@color/colorPrimary"
             android:foreground="?attr/selectableItemBackgroundBorderless"
-            android:onClick="onClick2"
-            android:text="@string/boton_registrarme"
+            android:text="@string/boton_aceptar"
             android:textColor="@color/colorAccent" />
 
         <ImageView
@@ -137,43 +187,5 @@
 
     </LinearLayout>
 
-
-
-
-
-    <LinearLayout
-        android:id="@+id/linearLayoutFilaSeis"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/fondo3"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/fondo_2" />
-
-        <Button
-            android:id="@+id/botonIniciarSesion"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:background="@color/colorPrimary"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
-            android:text="@string/boton_iniciar_sesion"
-            android:textColor="@color/colorAccent" />
-
-        <ImageView
-            android:id="@+id/fondo4"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            app:srcCompat="@drawable/fondo_2" />
-
-
-    </LinearLayout>
 
 </LinearLayout>

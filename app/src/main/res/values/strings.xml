@@ -4,18 +4,79 @@
 
     <string name="boton_comenzar">Comenzar</string>
     <string name="boton_registrarme">Registrarme</string>
+    <string name="boton_iniciar_sesion">Iniciar sesión</string>
+    <string name="boton_aceptar">Aceptar</string>
 
 
+    <!--texto pantlla 2-->
     <string name="texto_corazon">Monitorear tu estado de salud según tus sintomas.</string>
     <string name="texto_estetoscopio">Ayudar a todos los profesionales que trabajan por tu salud.</string>
     <string name="texto_base">Generar un registro de tu estado de salud.</string>
 
+    <!--tituo pantalla 1-->
     <string name="titulo1">¡Bienvenido!</string>
     <string name="subtitulo1">Gracias por ayudar a México</string>
     <string name="subtitulo2">Con esta App podrás:</string>
     <string name="subtitulo3">Ayúdanos a ayudarte</string>
 
+
+    <!--titulo pantalla 2-->
+    <string name="titulo2">Prueba de salud</string>
+    <string name="subtitulo4">#QuedateEnCasa</string>
+
+
+    <string name="subsubtitulo1">Datos personales</string>
+    <string name="subsubtitulo2">Domicilio</string>
+
+
+    <!--descripciones-->
     <string name="descripcion_registro">Registrate con tu número teléfonico y correo electrónico,
         nos ayudaras a poder entender mejor tu estado medico y el desarrollo del COVID-19 en México,
         también podríamos contactarte de forma directa en el caso de que necesiten ayuda.</string>
+    <string name="descripcion_registro_datos">Para comenzar ingresa los siguientes datos.</string>
+    <string name="descripcion_registro_sintomas">¿El día de hoy usted presenta alguno de los siguientes síntomas?</string>
+    <string name="descripcion_historial_clinico">¿Usted esta o estuvo diagnosticado con alguna de estas enfermedades?</string>
+
+
+    <!--Dato del gormulatio-->
+    <string name="dato_nombre">Nombre completo</string>
+    <string name="dato_edad">Edad</string>
+    <string name="dato_telefono">Telefono</string>
+    <string name="dato_peso">Peso</string>
+    <string name="dato_altura">Altura</string>
+    <string name="dato_fecha_inicio">Fecha de registro</string>
+    <string name="dato_calle">Calle y número</string>
+    <string name="dato_cp">C.P.</string>
+    <string name="dato_colonia">Colonia</string>
+
+
+    <!-- sintomologia -->
+
+
+    <string name="dato_cefalea">Cefalea (dolor de cabeza intenso) </string>
+    <string name="dato_tos">Tos</string>
+    <string name="dato_dolor_toracito">Dolor torácito</string>
+    <string name="dato_dolor_abdominal">Dolor abdominal</string>
+    <string name="dato_vomito">Vómito</string>
+    <string name="dato_irritabilidad">Irritabilidad</string>
+    <string name="dato_perdida_olfato_gusto">Pérdida de olfato y/o gusto</string>
+    <string name="dato_diarrea">Diarrea</string>
+    <string name="dato_odinofagia">Odinofagia (dificultad para ingerir alimentos)</string>
+    <string name="dato_rinorrea">Rinorrea (secreción nasal)</string>
+    <string name="dato_mialgias">Mialgias (dolor muscular)</string>
+
+
+    <!--historia clinico-->
+    <string name="dato_diabetes">Diabetes</string>
+    <string name="dato_obesidad">Obesidad  (a través de IMC)</string>
+    <string name="dato_cancer">Cáncer</string>
+    <string name="dato_asma">Asma</string>
+    <string name="dato_vih">VIH</string>
+    <string name="dato_has">HAS (Hipertensión arterial sistémica)</string>
+    <string name="dato_epoc">EPOC (Enfermedad pulmonar obstructiva crónica)</string>
+    <string name="dato_embarazo">Embarazo</string>
+    <string name="dato_artritis">Artritis</string>
+    <string name="dato_enfermedad_autoinmune">Enfermedad Autoinmune</string>
+
+
 </resources>

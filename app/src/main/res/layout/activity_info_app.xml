@@ -24,7 +24,7 @@
             app:srcCompat="@drawable/fondo_2" />
 
         <TextView
-            android:id="@+id/titulo1"
+            android:id="@+id/titulo2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -53,7 +53,7 @@
         android:gravity="clip_horizontal|center|center_horizontal|center_vertical"/>
 
     <TextView
-        android:id="@+id/subtitulo3"
+        android:id="@+id/subtitulo4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="clip_horizontal|center|center_horizontal|center_vertical"
@@ -78,7 +78,7 @@
             app:srcCompat="@drawable/corazon" />
 
         <TextView
-            android:id="@+id/descripcionRegistro"
+            android:id="@+id/descripcionRegistroDatos"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -162,7 +162,7 @@
             app:srcCompat="@drawable/fondo_2" />
 
         <Button
-            android:id="@+id/botonRegistrarme"
+            android:id="@+id/botonComenzar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -171,6 +171,19 @@
             android:textColor="@color/colorAccent"
             android:onClick="onClick"
             android:foreground="?attr/selectableItemBackgroundBorderless"/>
+
+        <!--com.google.android.material.button.MaterialButton
+            android:id="@+id/next_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_weight="2"
+            android:background="@color/colorPrimary"
+            android:onClick="onClick"
+
+            android:text="@string/boton_comenzar"
+            android:textColor="@color/colorAccent" /-->
 
         <ImageView
             android:id="@+id/fondo8"

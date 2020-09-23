@@ -10,8 +10,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InfoRegistro"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".Mediciones"></activity>
+        <activity
+            android:name=".Registro"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".InfoRegistro"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
 
             <!--
                 android:theme="@android:style/Theme.Material.NoActionBar.Fullscreen"
