@@ -27,11 +27,11 @@
             android:id="@+id/titulo4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:gravity="clip_horizontal|center|center_horizontal|center_vertical"
             android:paddingTop="10sp"
             android:shadowColor="#000000"
-            android:text="@string/titulo1"
+            android:text="@string/titulo3"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -45,37 +45,22 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/subtitulo1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/subtitulo1"
-        android:textSize="20sp"
-        android:gravity="clip_horizontal|center|center_horizontal|center_vertical"/>
-
-    <TextView
         android:id="@+id/subtitulo5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="clip_horizontal|center|center_horizontal|center_vertical"
         android:paddingTop="10sp"
-        android:text="@string/subtitulo2"
-        android:textSize="24sp"
+        android:text="@string/subtitulo5"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <LinearLayout
         android:id="@+id/linearLayoutFilaDos"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:orientation="horizontal">
 
-
-        <ImageView
-            android:id="@+id/iconoCorazon"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/corazon" />
 
         <TextView
             android:id="@+id/descricionListaMedir"
@@ -83,8 +68,9 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:gravity="clip_horizontal|center|center_horizontal|center_vertical"
-            android:text="@string/texto_corazon"
-            android:textStyle="bold" />
+            android:text="@string/descripcion_medir_salud"
+            android:textSize="18sp"
+            android:textStyle="normal" />
 
     </LinearLayout>
 
@@ -92,7 +78,7 @@
         android:id="@+id/linearLayoutFilaTres"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:orientation="horizontal">
 
 
@@ -100,58 +86,26 @@
             android:id="@+id/IconoCareta"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/estetoscopio" />
-
-        <TextView
-            android:id="@+id/textoEstetoscopio"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
             android:layout_weight="2"
-            android:gravity="clip_horizontal|center|center_horizontal|center_vertical"
-            android:text="@string/texto_estetoscopio"
-            android:textStyle="bold" />
+            app:srcCompat="@drawable/cardiology" />
+
 
     </LinearLayout>
+
+
 
     <LinearLayout
         android:id="@+id/linearLayoutFilaCuatro"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="horizontal">
-
-
-        <ImageView
-            android:id="@+id/iconoBase"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/base" />
-
-        <TextView
-            android:id="@+id/textoBase"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:gravity="clip_horizontal|center|center_horizontal|center_vertical"
-            android:text="@string/texto_base"
-            android:textStyle="bold" />
-
-    </LinearLayout>
+        android:orientation="horizontal"/>
 
     <LinearLayout
         android:id="@+id/linearLayoutFilaCinco"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="horizontal"/>
-
-    <LinearLayout
-        android:id="@+id/linearLayoutFilaSeis"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
         android:orientation="horizontal">
 
         <ImageView
@@ -167,23 +121,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:background="@color/colorPrimary"
-            android:text="@string/boton_comenzar"
-            android:textColor="@color/colorAccent"
-            android:onClick="onClick"
-            android:foreground="?attr/selectableItemBackgroundBorderless"/>
-
-        <!--com.google.android.material.button.MaterialButton
-            android:id="@+id/next_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_weight="2"
-            android:background="@color/colorPrimary"
-            android:onClick="onClick"
-
-            android:text="@string/boton_comenzar"
-            android:textColor="@color/colorAccent" /-->
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:onClick="onClick3"
+            android:text="@string/boton_siguiente"
+            android:textColor="@color/colorAccent" />
 
         <ImageView
             android:id="@+id/fondo8"
@@ -195,5 +136,11 @@
 
 
     </LinearLayout>
+
+
+
+
+
+
 
 </LinearLayout>

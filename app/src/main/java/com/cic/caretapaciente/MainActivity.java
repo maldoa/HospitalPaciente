@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 else{
-                    setContentView(R.layout.activity_info_registro);
+                    setContentView(R.layout.activity_info_pasos);
 
                 }
 
@@ -80,11 +80,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // se muestra la pantalla del proposito y para avanzar se necesita dar click
     @Override
     public void onClick(View view){
-        setContentView(R.layout.activity_info_registro);
+        setContentView(R.layout.activity_info_medicion);
+    }
+
+    public void onClick3(View view){
+        setContentView(R.layout.activity_info_pasos);
     }
 
     public void onClick2(View view){
-        Intent intent = new Intent(MainActivity.this, Registro.class);
+        Intent intent = new Intent(MainActivity.this, Mediciones.class);
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this, view, "simple_activity_transition");
         startActivity(intent, options.toBundle());
     }

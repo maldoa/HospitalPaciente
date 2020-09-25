@@ -7,7 +7,7 @@
     <string name="boton_iniciar_sesion">Iniciar sesión</string>
     <string name="boton_aceptar">Aceptar</string>
     <string name="boton_siguiente">Siguiente</string>
-
+    <string name="botom_tomar_signos">Tomar datos vitales</string>
 
     <!--texto pantlla 2-->
     <string name="texto_corazon">Monitorear tu estado de salud según tus sintomas.</string>
@@ -29,6 +29,13 @@
     <string name="subsubtitulo1">Datos personales</string>
     <string name="subsubtitulo2">Domicilio</string>
 
+    <!-- titulo pantalla 3 -->
+    <string name="titulo3">Por ti, por México</string>
+
+    <string name="subtitulo5">Queremos conocer tu estado de salud</string>
+
+    <!-- titulo pantalla 4 -->
+    <string name="titulo4">Instrucciones de usos</string>
 
     <!--descripciones-->
     <string name="descripcion_registro">Registrate con tu número teléfonico y correo electrónico,
@@ -37,7 +44,13 @@
     <string name="descripcion_registro_datos">Para comenzar ingresa los siguientes datos.</string>
     <string name="descripcion_registro_sintomas">¿El día de hoy usted presenta alguno de los siguientes síntomas?</string>
     <string name="descripcion_historial_clinico">¿Usted esta o estuvo diagnosticado con alguna de estas enfermedades?</string>
-
+    <string name="descripcion_medir_salud">Realizaremos un estudio sobre tu estado de salud y con ello se le informará a tu médico para que tome la mejor decisión.</string>
+    <string name="descripcion_lista_medir">1.-Asegúrese que su teléono este conectado a internet.\n\n
+2.-Encienda su conexión Bluetooth\n\n
+3.-Accione el switch en la careta.\n\n
+4.-Conecte su careta a su teléfono vía Bluetooth.\n\n
+5.-Coloca e dedal en el dedo índice.\n\n
+6.-Coloca la máscara en tu cara como se muestra en la imagen.</string>
 
     <!--Dato del gormulatio-->
     <string name="dato_nombre">Nombre completo</string>
@@ -47,6 +60,8 @@
     <string name="dato_altura">Altura</string>
     <string name="dato_fecha_inicio">Fecha de registro</string>
     <string name="dato_calle">Calle y número</string>
+    <string name="dato_correo">Correo</string>
+    <string name="dato_contrasena">Contraseña</string>
     <string name="dato_cp">C.P.</string>
     <string name="dato_colonia">Colonia</string>
 

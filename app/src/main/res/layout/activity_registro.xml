@@ -24,7 +24,7 @@
             app:srcCompat="@drawable/fondo_2" />
 
         <TextView
-            android:id="@+id/titulo2"
+            android:id="@+id/titulo4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -44,16 +44,6 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/subtitulo4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="clip_horizontal|center|center_horizontal|center_vertical"
-        android:paddingTop="10sp"
-        android:text="@string/subtitulo4"
-        android:textSize="30sp"
-        android:textStyle="bold" />
-
     <LinearLayout
         android:id="@+id/linearLayoutFilaDos"
         android:layout_width="match_parent"
@@ -63,7 +53,7 @@
 
 
         <TextView
-            android:id="@+id/descripcionRegistroDatos"
+            android:id="@+id/descricionListaMedir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20sp"
@@ -223,6 +213,46 @@
                 android:inputType="date"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_weight="1"
+            android:hint="@string/dato_correo"
+            app:helperTextEnabled="true"
+            app:startIconDrawable="@drawable/ic_baseline_email_24">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/campoCorreo"
+                android:layout_width="match_parent"
+                android:inputType="date"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_weight="1"
+            android:hint="@string/dato_contrasena"
+            app:helperTextEnabled="true"
+            app:startIconDrawable="@drawable/ic_baseline_lock_24">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/campoContrasena"
+                android:layout_width="match_parent"
+                android:inputType="date"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
     </LinearLayout>
 

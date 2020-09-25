@@ -24,7 +24,7 @@
             app:srcCompat="@drawable/fondo_2" />
 
         <TextView
-            android:id="@+id/subtitulo4"
+            android:id="@+id/subtitulo5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="clip_horizontal|center|center_horizontal|center_vertical"
@@ -51,7 +51,7 @@
 
 
         <TextView
-            android:id="@+id/descripcionRegistroDatos"
+            android:id="@+id/descricionListaMedir"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0"
