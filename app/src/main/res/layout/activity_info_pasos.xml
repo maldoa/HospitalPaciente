@@ -110,7 +110,7 @@
             android:layout_weight="2"
             android:background="@color/colorPrimary"
             android:foreground="?attr/selectableItemBackgroundBorderless"
-            android:onClick="onClick2"
+            android:onClick="onClickMedicion"
             android:text="@string/botom_tomar_signos"
             android:textColor="@color/colorAccent" />
 
@@ -126,6 +126,41 @@
     </LinearLayout>
 
 
+    <LinearLayout
+        android:id="@+id/linearLayoutFilaSiete"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/fondo9"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/fondo_2" />
+
+        <Button
+            android:id="@+id/botonActualizarDatos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@color/colorPrimary"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:onClick="onClickRegistro"
+            android:text="@string/boton_actualizar_datos"
+            android:textColor="@color/colorAccent" />
+
+        <ImageView
+            android:id="@+id/fondo10"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            app:srcCompat="@drawable/fondo_2" />
+
+
+    </LinearLayout>
 
 
 

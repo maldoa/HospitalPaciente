@@ -8,6 +8,7 @@
     <string name="boton_aceptar">Aceptar</string>
     <string name="boton_siguiente">Siguiente</string>
     <string name="botom_tomar_signos">Tomar datos vitales</string>
+    <string name="boton_actualizar_datos">Actualizar datos</string>
 
     <!--texto pantlla 2-->
     <string name="texto_corazon">Monitorear tu estado de salud según tus sintomas.</string>
@@ -93,6 +94,21 @@
     <string name="dato_embarazo">Embarazo</string>
     <string name="dato_artritis">Artritis</string>
     <string name="dato_enfermedad_autoinmune">Enfermedad Autoinmune</string>
+    <string name="title_activity_medicion">Medicion</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+
+
+
+    <string name="id_paciente">ID del paciente</string>
+    <string name="id_careta">ID de la careta</string>
 
 
 </resources>

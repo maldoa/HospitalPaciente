@@ -1,5 +1,6 @@
 package com.cic.caretapaciente;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityOptionsCompat;
 
@@ -7,13 +8,16 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
-
+import androidx.appcompat.widget.Toolbar;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Boolean firstTime = null;
+    private Toolbar mTopToolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onTick(long millisUntilFinished) {
             }
 
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             public void onFinish() {
 
                 if(isFirstTime()){
@@ -35,7 +40,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     setContentView(R.layout.activity_info_pasos);
 
                 }
-
+             //   mTopToolbar = (Toolbar) findViewById(R.id.toolbar);
+               // setSupportActionBar(mTopToolbar);
 
 
                 }
@@ -87,8 +93,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_info_pasos);
     }
 
-    public void onClick2(View view){
+    public void onClickMedicion(View view){
         Intent intent = new Intent(MainActivity.this, Mediciones.class);
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this, view, "simple_activity_transition");
+        startActivity(intent, options.toBundle());
+    }
+
+    public void onClickRegistro(View view){
+        Intent intent = new Intent(MainActivity.this, Registro.class);
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this, view, "simple_activity_transition");
         startActivity(intent, options.toBundle());
     }
