@@ -85,6 +85,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:layout_marginLeft="120sp"
                 android:hint="%" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -122,6 +123,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80sp"
+                    android:enabled="false"
+
                     android:hint=" mmHg" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -151,6 +154,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80sp"
+                    android:enabled="false"
+
                     android:hint="°C" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -189,6 +194,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:enabled="false"
+
                     android:hint="lpm" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -218,6 +225,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="40sp"
+                    android:enabled="false"
+
                     android:hint="mmHg" />
             </com.google.android.material.textfield.TextInputLayout>
 

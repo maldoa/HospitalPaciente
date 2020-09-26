@@ -13,7 +13,7 @@
         android:id="@+id/linearLayoutFilaUno"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.6"
         android:orientation="horizontal">
 
         <ImageView
@@ -86,14 +86,14 @@
         android:id="@+id/linearLayoutFilaCuatro"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.5"
+        android:layout_weight="0.3"
         android:orientation="horizontal" />
 
     <LinearLayout
         android:id="@+id/linearLayoutFilaCinco"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.6"
         android:orientation="horizontal">
 
         <ImageView
@@ -130,7 +130,7 @@
         android:id="@+id/linearLayoutFilaSiete"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.6"
         android:orientation="horizontal">
 
         <ImageView
