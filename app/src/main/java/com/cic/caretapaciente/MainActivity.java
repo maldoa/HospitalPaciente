@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void onClickMedicion(View view){
-        Intent intent = new Intent(MainActivity.this, Mediciones.class);
+        Intent intent = new Intent(MainActivity.this, devicelist.class);
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this, view, "simple_activity_transition");
         startActivity(intent, options.toBundle());
     }

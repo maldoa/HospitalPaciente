@@ -105,8 +105,6 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 
-
-
     <string name="id_paciente">ID del paciente</string>
     <string name="id_careta">ID de la careta</string>
 
