@@ -3,6 +3,10 @@ package com.cic.caretapaciente;
 import android.os.Bundle;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 import java.util.UUID;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -18,6 +22,11 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 public class Mediciones extends Activity {
 
     private static final String TAG = "BlueTest5-MainActivity";
@@ -43,6 +52,9 @@ public class Mediciones extends Activity {
 
     private ProgressDialog progressDialog;
 
+    private TextInputEditText id_careta,oxigeno,temperatura,cardiaca,respiratoria;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,12 +74,40 @@ public class Mediciones extends Activity {
        // scrollView = (ScrollView) findViewById(R.id.viewScroll);
         //mBtnClearInput = (Button) findViewById(R.id.btnClearInput);
         //mTxtReceive.setMovementMethod(new BaseMovementMethod());
-
+        id_careta = (TextInputEditText) findViewById(R.id.idPaciente);
+        oxigeno = (TextInputEditText) findViewById(R.id.oxigeno);
+        temperatura = (TextInputEditText) findViewById(R.id.temperatura);
+        cardiaca = (TextInputEditText) findViewById(R.id.cardiaca);
+        respiratoria = (TextInputEditText) findViewById(R.id.respiratoria);
 
 
 
 
     }
+
+    //write json
+    public void writeJSON() {
+        JSONObject object = new JSONObject();
+        Date c = Calendar.getInstance().getTime();
+        System.out.println("Current time => " + c);
+
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+        String formattedDate = df.format(c);
+        try {
+            object.put("id_careta", new Integer(id_careta.getText().toString()));
+            object.put("fecha_medicion", c);
+            object.put("saturacion_oxigeno", new Double(oxigeno.getText().toString()));
+            object.put("temperatura", new Double(temperatura.getText().toString()));
+            object.put("frec_cardiaca", new Integer(cardiaca.getText().toString()));
+            object.put("ferc_respiratoria", new Integer(respiratoria.getText().toString()));
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        System.out.println(object);
+    }
+
 
     private class ReadInput implements Runnable {
 
@@ -157,13 +197,13 @@ public class Mediciones extends Activity {
 
     }
 
-
-    void runOnUiThread(new Runnable() {
+/*
+    void runOnUiThread(new Runnable()) {
         @Override
         public void run() {
             //Cambiar controles
         }
-    });
+    });*/
 
 
 
