@@ -78,19 +78,30 @@
             android:textSize="24sp" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
+            android:layout_width="240dp"
             android:layout_height="match_parent"
             android:layout_weight="0">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <TextView
                 android:id="@+id/oxigeno"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:enabled="false"
-                android:layout_marginLeft="120sp"
-                android:hint="%" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_width="199dp"
+                android:layout_height="36dp"
 
+                android:enabled="false"
+                android:textColor="@color/design_default_color_error"
+                android:textSize="24sp" />
+
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/porcent"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_gravity="right"
+            android:text="%"
+            android:textSize="24sp"
+            android:layout_marginBottom="11dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -116,18 +127,26 @@
                 android:textSize="24sp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="80sp"
-                    android:enabled="false"
-                    android:id="@+id/respiratoria"
-                    android:hint=" mmHg" />
+                <TextView
+                    android:id="@+id/CO2"
+                    android:layout_width="166dp"
+                    android:layout_height="33dp"
+                    android:textColor="@color/design_default_color_error"
+                    android:textSize="24sp"
+                    android:enabled="false" />
             </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/mmHG"
+                android:layout_width="100dp"
+                android:layout_height="37dp"
+                android:layout_gravity="right"
+                android:text="mmHg"
+                android:textSize="24sp"
+                android:layout_marginBottom="11dp"/>
 
         </LinearLayout>
 
@@ -139,7 +158,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textV3iew"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
@@ -147,19 +166,27 @@
                 android:textSize="24sp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="80sp"
+                <TextView
+                    android:layout_width="166dp"
+                    android:layout_height="33dp"
+                    android:textColor="@color/design_default_color_error"
+                    android:textSize="24sp"
                     android:enabled="false"
                     android:id="@+id/temperatura"
-                    android:hint="°C" />
+                    />
             </com.google.android.material.textfield.TextInputLayout>
-
+            <TextView
+                android:id="@+id/Cents"
+                android:layout_width="100dp"
+                android:layout_height="37dp"
+                android:layout_gravity="right"
+                android:text="°C"
+                android:textSize="24sp"
+                android:layout_marginBottom="11dp"/>
         </LinearLayout>
 
 
@@ -184,22 +211,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:text="Frecuencia cardiaca:"
+                android:text="Frecuencia cardíaca:"
                 android:textSize="24sp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                <TextView
+                    android:layout_width="166dp"
+                    android:layout_height="33dp"
+                    android:textColor="@color/design_default_color_error"
+                    android:textSize="24sp"
                     android:enabled="false"
-                    android:id="@+id/cardiaca"
-                    android:hint="lpm" />
+                    android:id="@+id/fcardiaca"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
-
+            <TextView
+                android:id="@+id/lpm"
+                android:layout_width="100dp"
+                android:layout_height="37dp"
+                android:layout_gravity="right"
+                android:text="lpm"
+                android:textSize="24sp"
+                android:layout_marginBottom="11dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -218,22 +254,70 @@
                 android:textSize="24sp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="40sp"
+                <TextView
+                    android:layout_width="166dp"
+                    android:layout_height="33dp"
+                    android:textColor="@color/design_default_color_error"
+                    android:textSize="24sp"
                     android:enabled="false"
+                    android:id="@+id/parterial"
 
-                    android:hint="mmHg" />
+                     />
             </com.google.android.material.textfield.TextInputLayout>
-
+            <TextView
+                android:id="@+id/mmHg2"
+                android:layout_width="100dp"
+                android:layout_height="37dp"
+                android:layout_gravity="right"
+                android:text="mmHg"
+                android:textSize="24sp"
+                android:layout_marginBottom="11dp"/>
         </LinearLayout>
 
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutFila8"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text8View"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="Frecuencia respiratoria:"
+            android:textSize="24sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0">
+
+            <TextView
+                android:layout_width="166dp"
+                android:layout_height="33dp"
+                android:textColor="@color/design_default_color_error"
+                android:textSize="24sp"
+                android:enabled="false"
+                android:id="@+id/frespiratoria"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/fresp"
+            android:layout_width="100dp"
+            android:layout_height="37dp"
+            android:layout_gravity="right"
+            android:text="lpm"
+            android:textSize="24sp"
+            android:layout_marginBottom="11dp"/>
     </LinearLayout>
 
 

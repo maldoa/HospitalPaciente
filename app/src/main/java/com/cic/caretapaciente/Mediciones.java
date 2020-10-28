@@ -39,7 +39,7 @@ public class Mediciones extends Activity {
     private boolean mIsUserInitiatedDisconnect = false;
 
     // All controls here
-    private TextView mTxtReceive;
+    private TextView mTxtReceive, oxigeno, CO2,temperatura,fcardiaca, frespiratoria, parterial;
     private Button mBtnClearInput;
     private ScrollView scrollView;
     private CheckBox chkScroll;
@@ -52,7 +52,7 @@ public class Mediciones extends Activity {
 
     private ProgressDialog progressDialog;
 
-    private TextInputEditText id_careta,oxigeno,temperatura,cardiaca,respiratoria;
+    private TextInputEditText id_careta;
 
 
     @Override
@@ -75,10 +75,12 @@ public class Mediciones extends Activity {
         //mBtnClearInput = (Button) findViewById(R.id.btnClearInput);
         //mTxtReceive.setMovementMethod(new BaseMovementMethod());
         id_careta = (TextInputEditText) findViewById(R.id.idPaciente);
-        oxigeno = (TextInputEditText) findViewById(R.id.oxigeno);
-        temperatura = (TextInputEditText) findViewById(R.id.temperatura);
-        cardiaca = (TextInputEditText) findViewById(R.id.cardiaca);
-        respiratoria = (TextInputEditText) findViewById(R.id.respiratoria);
+        oxigeno = (TextView) findViewById(R.id.oxigeno);
+        temperatura = (TextView) findViewById(R.id.temperatura);
+        fcardiaca = (TextView) findViewById(R.id.fcardiaca);
+        CO2 = (TextView) findViewById(R.id.CO2);
+        parterial = (TextView) findViewById(R.id.parterial);
+        frespiratoria = (TextView) findViewById(R.id.frespiratoria);
 
 
 
@@ -98,8 +100,9 @@ public class Mediciones extends Activity {
             object.put("fecha_medicion", c);
             object.put("saturacion_oxigeno", new Double(oxigeno.getText().toString()));
             object.put("temperatura", new Double(temperatura.getText().toString()));
-            object.put("frec_cardiaca", new Integer(cardiaca.getText().toString()));
-            object.put("ferc_respiratoria", new Integer(respiratoria.getText().toString()));
+            object.put("frec_cardiaca", new Integer(fcardiaca.getText().toString()));
+            object.put("ferc_respiratoria", new Integer(frespiratoria.getText().toString()));
+            //TODO  PRESION ARTERIAL
 
 
         } catch (JSONException e) {
@@ -114,6 +117,8 @@ public class Mediciones extends Activity {
         private boolean bStop = false;
         private Thread t;
         private boolean chkReceiveText = true;
+        private static final String TAG = "MyActivity";
+        private StringBuilder recDataString = new StringBuilder();
 
         public ReadInput() {
             t = new Thread(this, "Input Thread");
@@ -138,27 +143,56 @@ public class Mediciones extends Activity {
 
                         for (i = 0; i < buffer.length && buffer[i] != 0; i++) {
                         }
-                        final String strInput = new String(buffer, 0, i);
-
+                        final String[] strInput = {new String(buffer, 0, i)};
+                        recDataString.append(strInput[0]);
+                        int endOfLineIndex = recDataString.indexOf("~");
+                        String dataInPrint = recDataString.substring(0, endOfLineIndex);
                         /*
                          * If checked then receive text, better design would probably be to stop thread if unchecked and free resources, but this is a quick fix
                          */
-
-                        if (chkReceiveText == true) {
+                        final int limite = 24;
+                        if (strInput[0].charAt(0) == '#') {
                             mTxtReceive.post(new Runnable() {
                                 @Override
                                 public void run() {
-                                    mTxtReceive.append(strInput);
-                                    //SystemClock.sleep(500);
-                                   //
+                                    int longitud = strInput[0].length();
+                                    if (longitud > limite) {
+                                        strInput[0] = strInput[0].replaceAll("#"," ");
+                                        strInput[0] = strInput[0].replaceAll("~"," ");
+
+                                        String[] value = strInput[0].split(",");
+                                        String oxigenos = value[0];
+                                        String frespiratorias = value[1];
+                                        String temperaturas = value[3];
+                                        String fcaridacas = value[4];
+                                        String parterials = value[5];
+                                        String CO2s = value[2];
+                                        //oxigeno.append(strInput);
+                                        //SystemClock.sleep(500);
+                                        oxigeno.append(oxigenos);
+                                        frespiratoria.append(frespiratorias);
+                                        temperatura.append(temperaturas);
+                                        fcardiaca.append(fcaridacas);
+                                        parterial.append(parterials);
+                                        CO2.append(CO2s);
+                                        Log.wtf(TAG,"VALUE: " + oxigenos+" length "+strInput[0].length());
+                                        Log.wtf(TAG,"CERO: "+ strInput[0]);
+
+                                    }
+                                    else {
+                                        Log.wtf(TAG,"VALUE: "+ "AAAA");
+                                        Log.wtf(TAG,"TODO: "+ strInput);
+                                        Log.wtf(TAG,"CERO: "+ strInput[0]);
 
 
+                                    }
 
+/*
                                     int txtLength = mTxtReceive.getEditableText().length();
                                     if(txtLength > mMaxChars){
                                         mTxtReceive.getEditableText().delete(0, txtLength - mMaxChars);
                                     }
-
+*/
 
 
 
@@ -176,9 +210,27 @@ public class Mediciones extends Activity {
                             */
                         }
 
+
                     }
 
+
                     Thread.sleep(500);
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            oxigeno.setText("");
+                            frespiratoria.setText("");
+                            temperatura.setText("");
+                            fcardiaca.setText("");
+                            parterial.setText("");
+                            CO2.setText("");
+                            // mTxtReceive.setText("");
+
+                        }
+                    });
+
                     //
                 }
             } catch (IOException e) {
@@ -188,6 +240,14 @@ public class Mediciones extends Activity {
 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
+            catch (StringIndexOutOfBoundsException e){
+                Log.wtf(TAG,"VALUE: "+ "Out of bounds");
+                Log.wtf(TAG,"VALUE: "+ mTxtReceive);
+                e.printStackTrace();
+
+                ;
+            }
+
 
         }
 
