@@ -59,6 +59,10 @@ public class devicelist extends Activity {
         connect = (Button) findViewById(R.id.connect);
 
         listView = (ListView) findViewById(R.id.listview);
+        connect.setEnabled(false);
+        int inactivo = Color.parseColor("#e6e6e6");
+
+        connect.setBackgroundColor(inactivo);
 
         if (savedInstanceState != null) {
             ArrayList<BluetoothDevice> list = savedInstanceState.getParcelableArrayList(DEVICE_LIST);
@@ -68,8 +72,9 @@ public class devicelist extends Activity {
                 int selectedIndex = savedInstanceState.getInt(DEVICE_LIST_SELECTED);
                 if (selectedIndex != -1) {
                     adapter.setSelectedIndex(selectedIndex);
-                    connect.setEnabled(true);
+                    //connect.setEnabled(true);
                 }
+
             } else {
                 initList(new ArrayList<BluetoothDevice>());
             }
@@ -86,6 +91,9 @@ public class devicelist extends Activity {
                 if (mBTAdapter == null) {
                     Toast.makeText(getApplicationContext(), "Bluetooth no encontrado", Toast.LENGTH_SHORT).show();
                 } else if (!mBTAdapter.isEnabled()) {
+                    connect.setEnabled(true);
+                    int inactivo = Color.parseColor("#802736");
+                    connect.setBackgroundColor(inactivo);
                     Intent enableBT = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                     startActivityForResult(enableBT, BT_ENABLE_REQUEST);
                 } else {
@@ -98,6 +106,8 @@ public class devicelist extends Activity {
 
             @Override
             public void onClick(View arg0) {
+                //Toast.makeText(getApplicationContext(), ""+selectedIndex, Toast.LENGTH_SHORT).show();
+
                 BluetoothDevice device = ((MyAdapter) (listView.getAdapter())).getSelectedItem();
                 Intent intent = new Intent(getApplicationContext(), Mediciones.class);
                 intent.putExtra(DEVICE_EXTRA, device);

@@ -1,8 +1,16 @@
 package com.cic.caretapaciente;
 
+import android.content.Context;
 import android.os.Bundle;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -35,6 +43,8 @@ public class Mediciones extends Activity {
     private BluetoothSocket mBTSocket;
     private ReadInput mReadThread = null;
 
+    private File f,f1;
+    static private String FILENAME = "mediciones.txt";
 
     private boolean mIsUserInitiatedDisconnect = false;
 
@@ -45,6 +55,12 @@ public class Mediciones extends Activity {
     private CheckBox chkScroll;
     private CheckBox chkReceiveText;
 
+    private FileInputStream fis;
+    private FileOutputStream fos;
+    private InputStreamReader isr;
+    private BufferedReader bufferedReader;
+    private StringBuilder sb;
+    private String line;
 
     private boolean mIsBluetoothConnected = false;
 
@@ -175,6 +191,16 @@ public class Mediciones extends Activity {
                                         fcardiaca.append(fcaridacas);
                                         parterial.append(parterials);
                                         CO2.append(CO2s);
+
+                                        f1 = getFileStreamPath(FILENAME);
+                                        if (oxigenos != "") { // existe go en el archivo
+                                            try {
+                                                Write(FILENAME,oxigenos,frespiratorias,temperaturas,fcaridacas,parterials,CO2s);
+                                            } catch (IOException e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+
                                         Log.wtf(TAG,"VALUE: " + oxigenos+" length "+strInput[0].length());
                                         Log.wtf(TAG,"CERO: "+ strInput[0]);
 
@@ -219,15 +245,26 @@ public class Mediciones extends Activity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-
-                            oxigeno.setText("");
-                            frespiratoria.setText("");
-                            temperatura.setText("");
-                            fcardiaca.setText("");
-                            parterial.setText("");
-                            CO2.setText("");
-                            // mTxtReceive.setText("");
-
+                            f = getFileStreamPath(FILENAME);
+                            if (f.length() != 0) {
+                                sb =Read(f1,FILENAME);
+                                String[] parts = sb.toString().split(",");
+                                oxigeno.setText(parts[0]);
+                                frespiratoria.setText(parts[1]);
+                                temperatura.setText(parts[2]);
+                                fcardiaca.setText(parts[3]);
+                                parterial.setText(parts[4]);
+                                CO2.setText(parts[5]);
+                            }
+                            else {
+                                oxigeno.setText("");
+                                frespiratoria.setText("");
+                                temperatura.setText("");
+                                fcardiaca.setText("");
+                                parterial.setText("");
+                                CO2.setText("");
+                                // mTxtReceive.setText("");
+                            }
                         }
                     });
 
@@ -265,7 +302,33 @@ public class Mediciones extends Activity {
         }
     });*/
 
+    public void Write(String fileName, String text, String text2, String text3, String text4, String text5, String text6) throws IOException {
+        String claves = text + "," + text2+ "," + text3+ "," + text4+ "," + text5+ "," + text6;
+        fos = openFileOutput(fileName, Context.MODE_PRIVATE);
+        fos.write(claves.getBytes());
+        fos.close();
 
+    }
+
+    public StringBuilder Read(File file,String fileName) {
+        try {
+            fis = openFileInput(fileName);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        //se obtiene la información
+        isr = new InputStreamReader(fis);
+        bufferedReader = new BufferedReader(isr);
+        sb = new StringBuilder();
+        try {
+            while ((line = bufferedReader.readLine()) != null) {
+                sb.append(line); // se le qu tiee el archivo;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return sb;
+    }
 
     private class DisConnectBT extends AsyncTask<Void, Void, Void> {
 

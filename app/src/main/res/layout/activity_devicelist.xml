@@ -18,6 +18,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="90dp"
+            android:background="@color/colorPrimary"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:textColor="@color/colorAccent"
             android:text="Buscar"/>
 
         <Button
@@ -25,6 +28,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="50dp"
+            android:background="@color/colorPrimary"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:textColor="@color/colorAccent"
             android:text="Conectar" />
 
 
