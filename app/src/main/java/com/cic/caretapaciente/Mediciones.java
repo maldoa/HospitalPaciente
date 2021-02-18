@@ -1,6 +1,7 @@
 package com.cic.caretapaciente;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import java.io.BufferedReader;
@@ -245,6 +246,7 @@ public class Mediciones extends Activity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            /*
                             f = getFileStreamPath(FILENAME);
                             if (f.length() != 0) {
                                 sb =Read(f1,FILENAME);
@@ -256,7 +258,7 @@ public class Mediciones extends Activity {
                                 parterial.setText(parts[4]);
                                 CO2.setText(parts[5]);
                             }
-                            else {
+                            else { */
                                 oxigeno.setText("");
                                 frespiratoria.setText("");
                                 temperatura.setText("");
@@ -264,7 +266,7 @@ public class Mediciones extends Activity {
                                 parterial.setText("");
                                 CO2.setText("");
                                 // mTxtReceive.setText("");
-                            }
+                            //}
                         }
                     });
 

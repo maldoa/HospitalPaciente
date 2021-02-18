@@ -59,10 +59,10 @@ public class devicelist extends Activity {
         connect = (Button) findViewById(R.id.connect);
 
         listView = (ListView) findViewById(R.id.listview);
-        connect.setEnabled(false);
+        //connect.setEnabled(false);
         int inactivo = Color.parseColor("#e6e6e6");
 
-        connect.setBackgroundColor(inactivo);
+        //connect.setBackgroundColor(inactivo);
 
         if (savedInstanceState != null) {
             ArrayList<BluetoothDevice> list = savedInstanceState.getParcelableArrayList(DEVICE_LIST);
@@ -92,8 +92,8 @@ public class devicelist extends Activity {
                     Toast.makeText(getApplicationContext(), "Bluetooth no encontrado", Toast.LENGTH_SHORT).show();
                 } else if (!mBTAdapter.isEnabled()) {
                     connect.setEnabled(true);
-                    int inactivo = Color.parseColor("#802736");
-                    connect.setBackgroundColor(inactivo);
+                    int inactivo = Color.parseColor("@color/colorAccent");
+                    //connect.setBackgroundColor(inactivo);
                     Intent enableBT = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                     startActivityForResult(enableBT, BT_ENABLE_REQUEST);
                 } else {
