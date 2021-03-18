@@ -196,6 +196,7 @@ public class devicelist extends Activity {
             List<BluetoothDevice> listDevices = new ArrayList<BluetoothDevice>();
             for (BluetoothDevice device : pairedDevices) {
                 listDevices.add(device);
+                connect.setEnabled(false);
             }
             return listDevices;
 
@@ -282,6 +283,8 @@ public class devicelist extends Activity {
 
             if (selectedIndex != -1 && position == selectedIndex) {
                 holder.tv.setBackgroundColor(selectedColor);
+                connect.setBackgroundColor(Color.parseColor("#802736"));
+
             } else {
                 holder.tv.setBackgroundColor(Color.WHITE);
             }

@@ -46,11 +46,11 @@
     <string name="descripcion_registro_sintomas">¿El día de hoy usted presenta alguno de los siguientes síntomas?</string>
     <string name="descripcion_historial_clinico">¿Usted esta o estuvo diagnosticado con alguna de estas enfermedades?</string>
     <string name="descripcion_medir_salud">Realizaremos un estudio sobre tu estado de salud y con ello se le informará a tu médico para que tome la mejor decisión.</string>
-    <string name="descripcion_lista_medir">1.-Asegúrese que su teléono este conectado a internet.\n\n
+    <string name="descripcion_lista_medir">1.-Asegúrese que su teléfono este conectado a internet.\n\n
 2.-Encienda su conexión Bluetooth\n\n
 3.-Accione el switch en la careta.\n\n
 4.-Conecte su careta a su teléfono vía Bluetooth.\n\n
-5.-Coloca e dedal en el dedo índice.\n\n
+5.-Coloca el dedal en el dedo índice.\n\n
 6.-Coloca la máscara en tu cara como se muestra en la imagen.</string>
 
     <!--Dato del gormulatio-->
