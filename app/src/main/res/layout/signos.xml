@@ -12,347 +12,219 @@
     <LinearLayout
         android:id="@+id/linearLayoutFilaUno"
         android:layout_width="match_parent"
-        android:layout_height="80sp"
-        android:layout_weight="0"
+        android:layout_weight="1"
+        android:layout_height="0sp"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/fondo1"
-            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             app:srcCompat="@drawable/fondo_2" />
 
         <TextView
             android:id="@+id/subtitulo5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
             android:gravity="clip_horizontal|center|center_horizontal|center_vertical"
-            android:paddingTop="10sp"
             android:text="Monitoreo de tu salud"
             android:textSize="30sp"
             android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/fondo2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             app:srcCompat="@drawable/fondo_2" />
 
     </LinearLayout>
 
+
     <LinearLayout
         android:id="@+id/linearLayoutFilaDos"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_weight="0"
+        android:layout_weight="1"
+        android:layout_height="0sp"
         android:orientation="horizontal">
 
 
         <TextView
             android:id="@+id/descricionListaMedir"
-            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:gravity="clip_horizontal|center|center_horizontal|center_vertical"
             android:text="Se visualizan los datos de los sensores del paciente."
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="normal" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayoutFilaTres"
+        android:id="@+id/linearLayou4dftFilaTres"
         android:layout_width="match_parent"
-        android:layout_height="60sp"
-        android:layout_weight="0"
+        android:layout_weight="1"
+        android:layout_height="0sp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/txtReceive"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:text="Oxímetro (%):"
             android:textSize="24sp" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="240dp"
+        <TextView
+            android:id="@+id/oxigeno"
             android:layout_height="match_parent"
-            android:layout_weight="0">
-
-            <TextView
-                android:id="@+id/oxigeno"
-                android:layout_width="199dp"
-                android:layout_height="36dp"
-
-                android:enabled="false"
-                android:textColor="@color/design_default_color_error"
-                android:textSize="24sp" />
-
-
-
-        </com.google.android.material.textfield.TextInputLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayoutFilaCinco"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:id="@+id/linearLayoutFilaTres"
-            android:layout_width="match_parent"
-            android:layout_height="60sp"
-            android:layout_weight="0"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textV2iew"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:text="Capnografía (mmHg):"
-                android:textSize="24sp" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0">
-
-                <TextView
-                    android:id="@+id/CO2"
-                    android:layout_width="166dp"
-                    android:layout_height="33dp"
-                    android:textColor="@color/design_default_color_error"
-                    android:textSize="24sp"
-                    android:enabled="false" />
-            </com.google.android.material.textfield.TextInputLayout>
-            <TextView
-                android:id="@+id/mmHG"
-                android:layout_width="100dp"
-                android:layout_height="37dp"
-                android:layout_gravity="right"
-                android:textSize="24sp"
-                android:layout_marginBottom="11dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayoutFilaTres"
-            android:layout_width="match_parent"
-            android:layout_height="60sp"
-            android:layout_weight="0"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textV3iew"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:text="Temperatura (°C):"
-                android:textSize="24sp" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0">
-
-                <TextView
-                    android:layout_width="166dp"
-                    android:layout_height="33dp"
-                    android:textColor="@color/design_default_color_error"
-                    android:textSize="24sp"
-                    android:enabled="false"
-                    android:id="@+id/temperatura"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-            <TextView
-                android:id="@+id/Cents"
-                android:layout_width="100dp"
-                android:layout_height="37dp"
-                android:layout_gravity="right"
-                android:textSize="24sp"
-                android:layout_marginBottom="11dp"/>
-        </LinearLayout>
-
+            android:layout_weight="2"
+            android:textSize="24sp"
+            />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayoutFilaDos"
+        android:id="@+id/linearLayodutFilaCinco"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_weight="0"
-        android:orientation="vertical">
+        android:layout_weight="1"
+        android:layout_height="0sp"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:id="@+id/linearLayoutFila66T777res"
-            android:layout_width="match_parent"
-            android:layout_height="60sp"
-            android:layout_weight="0"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:text="Frecuencia cardíaca (lpm):"
-                android:textSize="24sp" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0">
-
-                <TextView
-                    android:layout_width="166dp"
-                    android:layout_height="33dp"
-                    android:textColor="@color/design_default_color_error"
-                    android:textSize="24sp"
-                    android:enabled="false"
-                    android:id="@+id/fcardiaca"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-            <TextView
-                android:id="@+id/lpm"
-                android:layout_width="100dp"
-                android:layout_height="37dp"
-                android:layout_gravity="right"
-                android:textSize="24sp"
-                android:layout_marginBottom="11dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayoutFila66T77711res"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textV2iew"
             android:layout_height="match_parent"
-            android:layout_weight="0"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:text="Capnografía (mmHg):"
+            android:textSize="24sp" />
 
-            <TextView
-                android:id="@+id/te1xtView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:text="Presión arterial (mmHg):"
-                android:textSize="24sp" />
+        <TextView
+            android:id="@+id/CO2"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:textSize="24sp"
+            />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0">
 
-                <TextView
-                    android:layout_width="166dp"
-                    android:layout_height="33dp"
-                    android:textColor="@color/design_default_color_error"
-                    android:textSize="24sp"
-                    android:enabled="false"
-                    android:id="@+id/parterial"
+    </LinearLayout>
 
-                     />
-            </com.google.android.material.textfield.TextInputLayout>
-            <TextView
-                android:id="@+id/mmHg2"
-                android:layout_width="100dp"
-                android:layout_height="37dp"
-                android:layout_gravity="right"
-                android:textSize="24sp"
-                android:layout_marginBottom="11dp"/>
-        </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/linearLayoutFirlaTres"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textV3iew"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Temperatura (°C):"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/temperatura"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:textSize="24sp"
+            />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayoutFilaD3os"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Frecuencia cardíaca (lpm):"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:textColor="@color/design_default_color_error"
+            android:textSize="24sp"
+            android:enabled="false"
+            android:id="@+id/fcardiaca"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayoutFila66T77711res"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/te1xtView"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Presión arterial (mmHg):"
+            android:textSize="24sp" />
+
+
+        <TextView
+            android:id="@+id/parterial"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:textSize="24sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayoutFila8"
         android:layout_width="match_parent"
-        android:layout_height="60sp"
-        android:layout_weight="0"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/text8View"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:id="@+id/text8View44"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:text="Frecuencia respiratoria (lpm):"
             android:textSize="24sp" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0">
-
-            <TextView
-                android:layout_width="166dp"
-                android:layout_height="33dp"
-                android:textColor="@color/design_default_color_error"
-                android:textSize="24sp"
-                android:enabled="false"
-                android:id="@+id/frespiratoria"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
         <TextView
-            android:id="@+id/fresp"
-            android:layout_width="100dp"
-            android:layout_height="37dp"
-            android:layout_gravity="right"
-            android:textSize="24sp"
-            android:layout_marginBottom="11dp"/>
+            android:id="@+id/frespiratoria"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:textSize="24sp"/>
+
     </LinearLayout>
     <LinearLayout
         android:id="@+id/linearLayoutdebug"
-        android:layout_width="match_parent"
-        android:layout_height="60sp"
-        android:layout_weight="0"
+        android:layout_width= "match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/text8View"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:text="dato:"
             android:textSize="24sp" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="300dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0">
-
-            <TextView
-                android:layout_width="300dp"
-                android:layout_height="33dp"
-                android:textColor="@color/design_default_color_error"
-                android:textSize="24sp"
-                android:enabled="false"
-                android:id="@+id/debug"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-
         <TextView
             android:id="@+id/length"
-            android:layout_width="50dp"
-            android:layout_height="37dp"
-            android:layout_gravity="right"
-
-            android:layout_marginRight="1dp"
-            android:layout_marginBottom="1dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
             android:textSize="24sp" />
-    </LinearLayout>
 
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayoutFilaSeis"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:orientation="horizontal"
         android:paddingTop="50sp">
 
