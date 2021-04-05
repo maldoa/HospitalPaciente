@@ -31,6 +31,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
+// busca y conecta lso dispositivos Via Bluetooth
+
+
 public class devicelist extends Activity {
 
     private Button search;
@@ -59,10 +62,10 @@ public class devicelist extends Activity {
         connect = (Button) findViewById(R.id.connect);
 
         listView = (ListView) findViewById(R.id.listview);
-        //connect.setEnabled(false);
+        connect.setEnabled(false);
         int inactivo = Color.parseColor("#e6e6e6");
 
-        //connect.setBackgroundColor(inactivo);
+        connect.setBackgroundColor(inactivo);
 
         if (savedInstanceState != null) {
             ArrayList<BluetoothDevice> list = savedInstanceState.getParcelableArrayList(DEVICE_LIST);
@@ -287,6 +290,7 @@ public class devicelist extends Activity {
 
             } else {
                 holder.tv.setBackgroundColor(Color.WHITE);
+                connect.setBackgroundColor(Color.parseColor("#802736"));
             }
             BluetoothDevice device = myList.get(position);
             holder.tv.setText(device.getName() + "\n " + device.getAddress());
