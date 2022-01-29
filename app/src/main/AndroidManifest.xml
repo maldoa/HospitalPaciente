@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.cic.caretapaciente">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,14 +16,21 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme"
         android:configChanges="orientation"
         android:screenOrientation="portrait">
-        <activity android:name=".ActivityHelper"></activity>
+        <activity android:name=".ActivityHelper"
+            tools:ignore="Instantiatable"></activity>
         <activity android:name=".devicelist"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             />
+        <activity
+            android:name=".DatosActivity"
+            android:configChanges="orientation"
+            tools:ignore="LockedOrientationActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".Mediciones"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
@@ -31,7 +39,14 @@
         <activity
             android:name=".Registro"
             android:configChanges="orientation"
-            android:screenOrientation="portrait" />
+            tools:ignore="LockedOrientationActivity"
+            android:screenOrientation="portrait">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
 
         <activity
             android:name=".MainActivity"
@@ -42,11 +57,7 @@
                 android:theme="@android:style/Theme.Material.NoActionBar.Fullscreen"
             tools:targetApi="lollipop"
             -->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

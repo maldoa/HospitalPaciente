@@ -48,10 +48,10 @@
 
 
         <ImageView
-            android:id="@+id/gobiernoMex"
+            android:id="@+id/sre"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/gobierno_mexico" />
+            app:srcCompat="@drawable/sre" />
     </LinearLayout>
 
 
@@ -60,15 +60,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/fondo7"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/conacyt" />
-
-    </LinearLayout>
+        android:orientation="horizontal"/>
 
 </LinearLayout>

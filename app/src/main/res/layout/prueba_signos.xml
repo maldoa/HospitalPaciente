@@ -75,7 +75,7 @@
             android:textSize="24sp"  android:layout_width="0dp"/>
 
         <EditText
-            android:text=""
+            android:text="1"
             android:id="@+id/activity_id_paciente"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -106,10 +106,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textSize="24sp"
-            android:text=""
+            android:text="92.1"
             android:textColor="@color/design_default_color_error"
             android:inputType="numberDecimal"
-            android:layout_width="0dp"/>
+             android:layout_width="0dp"/>
 
     </LinearLayout>
 
@@ -132,12 +132,14 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textSize="24sp"
-            android:text=""
+            android:text="36.1"
             android:textColor="@color/design_default_color_error"
             android:inputType="numberDecimal"
-            android:layout_width="0dp"/>
+             android:layout_width="0dp"/>
 
     </LinearLayout>
+
+
 
     <LinearLayout
         android:id="@+id/linearLayoutFilaD3os"
@@ -157,10 +159,10 @@
             android:layout_weight="1"
             android:textColor="@color/design_default_color_error"
             android:textSize="24sp"
-            android:text=""
+            android:text="18"
             android:id="@+id/activity_frec_cardiaca"
             android:inputType="numberDecimal"
-            android:layout_width="0dp"/>
+             android:layout_width="0dp"/>
 
     </LinearLayout>
 
@@ -186,12 +188,11 @@
             android:layout_weight="1"
             android:textColor="@color/design_default_color_error"
             android:inputType="numberDecimal"
-            android:text=""
+            android:text="0"
             android:textSize="24sp" android:layout_width="0dp"/>
 
     </LinearLayout>
 
-
     <LinearLayout
         android:id="@+id/linearLayoutFila66T77711res"
         android:layout_width="match_parent"
@@ -210,7 +211,7 @@
             android:id="@+id/activity_pres_art_sistolica"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text=""
+            android:text="0"
             android:inputType="numberDecimal"
             android:textColor="@color/design_default_color_error"
             android:textSize="24sp"  android:layout_width="0dp"/>
@@ -236,63 +237,11 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:inputType="numberDecimal"
-            android:text=""
+            android:text="0"
             android:textColor="@color/design_default_color_error"
             android:textSize="24sp"  android:layout_width="0dp"/>
 
     </LinearLayout>
-
-
-
-    <!--LinearLayout
-        android:id="@+id/linearLayoutFila66T77711res"
-        android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal" android:layout_height="0dp">
-
-        <TextView
-            android:id="@+id/te1xtView"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Presión arterial sistolica(mmHg):"
-            android:textSize="24sp"  android:layout_width="0dp"/>
-
-
-        <EditText
-            android:id="@+id/activity_pres_art_sistolica"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="0"
-            android:inputType="numberDecimal"
-            android:textColor="@color/design_default_color_error"
-            android:textSize="24sp"  android:layout_width="0dp"/>
-
-    </LinearLayout-->
-
-    <!--LinearLayout
-        android:id="@+id/linearLayoutdebug"
-        android:layout_width= "match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/text8View"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Presión arterial diastolica(mmHg):"
-            android:textSize="24sp"  android:layout_width="0dp"/>
-
-        <EditText
-            android:id="@+id/activity_pres_art_diastolica"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:inputType="numberDecimal"
-            android:text="0"
-            android:textColor="@color/design_default_color_error"
-            android:textSize="24sp"  android:layout_width="0dp"/>
-
-    </LinearLayout-->
 
     <LinearLayout
         android:id="@+id/linearLayoutFilaSeis"
@@ -310,7 +259,7 @@
             app:srcCompat="@drawable/fondo_2" />
 
         <Button
-            android:id="@+id/activity_comments_send_2"
+            android:id="@+id/activity_comments_send"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"

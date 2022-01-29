@@ -9,6 +9,7 @@
     <string name="boton_siguiente">Siguiente</string>
     <string name="botom_tomar_signos">Tomar datos vitales</string>
     <string name="boton_actualizar_datos">Actualizar datos</string>
+    <string name="boton_prueba">Prueba</string>
 
     <!--texto pantlla 2-->
     <string name="texto_corazon">Monitorear tu estado de salud según tus sintomas.</string>
@@ -16,10 +17,10 @@
     <string name="texto_base">Generar un registro de tu estado de salud.</string>
 
     <!--tituo pantalla 1-->
-    <string name="titulo1">¡Bienvenido!</string>
+    <string name="titulo1">Sistema de monitoreo</string>
     <string name="subtitulo1">Gracias por ayudar a México</string>
     <string name="subtitulo2">Con esta App podrás:</string>
-    <string name="subtitulo3">Ayúdanos a ayudarte</string>
+    <string name="subtitulo3">Aplicación para medir los signos vitales de los pacientes</string>
 
 
     <!--titulo pantalla 2-->
@@ -108,5 +109,16 @@
     <string name="id_paciente">ID del paciente</string>
     <string name="id_careta">ID de la careta</string>
 
-
+    <!-- Strings related to login -->
+    <string name="prompt_user_id">Id usuario</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in">Iniciar sesión</string>
+    <string name="action_sign_in_short">Iniciar sesión</string>
+    <string name="error_invalid_user_id">El id proporcionado es inválido</string>
+    <string name="error_incorrect_password">La contraseña es incorrecta</string>
+    <string name="error_field_required">Este campo es requerido</string>
+    <string name="error_server">Error en el servidor</string>
+    <string name="error_incorrect_user_id">Número de identificación no registrado</string>
+    <string name="error_network">Conexión de red no disponible</string>
+    <string name="error_invalid_password">Contraseña inválida</string>
 </resources>

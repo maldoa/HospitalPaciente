@@ -8,21 +8,31 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.view.View;
 import androidx.appcompat.widget.Toolbar;
+import android.content.SharedPreferences;
+import android.widget.Button;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Boolean firstTime = null;
     private Toolbar mTopToolbar;
+    private SharedPreferences myPreferences;
+    static int inactivo = Color.parseColor("#e6e6e6");
+    private Button botonSignos, botonPrueba;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        // setContentView(R.layout.activity_main);
         setContentView(R.layout.caratula);
+
+
 
         new CountDownTimer(1000, 1000) {
 
@@ -91,6 +101,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void onClick3(View view){
         setContentView(R.layout.activity_info_pasos);
+        botonSignos = findViewById(R.id.botonSignos);
+        botonPrueba = findViewById(R.id.botonPrueba);
+        myPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        int id = myPreferences.getInt("IDPACIENTE", 0);
+       /* if (id == 0){
+
+            botonSignos.setEnabled(false);
+            botonSignos.setBackgroundColor(inactivo);
+            botonPrueba.setEnabled(false);
+            botonPrueba.setBackgroundColor(inactivo);
+        }*/
+
     }
 
     public void onClickMedicion(View view){
@@ -99,8 +121,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(intent, options.toBundle());
     }
 
-    public void onClickRegistro(View view){
+   /* public void onClickRegistro(View view){
         Intent intent = new Intent(MainActivity.this, Registro.class);
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this, view, "simple_activity_transition");
+        startActivity(intent, options.toBundle());
+    }*/
+
+    public void onClickPrueba(View view){
+        Intent intent = new Intent(MainActivity.this, DatosActivity.class);
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this, view, "simple_activity_transition");
         startActivity(intent, options.toBundle());
     }

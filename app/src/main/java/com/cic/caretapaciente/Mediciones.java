@@ -1,7 +1,12 @@
 package com.cic.caretapaciente;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import java.io.BufferedReader;
@@ -12,6 +17,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -24,18 +31,37 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Message;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import okhttp3.Request;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class Mediciones extends Activity {
 
     private static final String TAG = "BlueTest5-MainActivity";
@@ -43,25 +69,16 @@ public class Mediciones extends Activity {
     private UUID mDeviceUUID;
     private BluetoothSocket mBTSocket;
     private ReadInput mReadThread = null;
-
-    private File f,f1;
-    static private String FILENAME = "mediciones.txt";
+    String s;
+    SpannableString ss2;
 
     private boolean mIsUserInitiatedDisconnect = false;
 
     // All controls here
-    private TextView mTxtReceive, oxigeno, CO2,temperatura,fcardiaca, frespiratoria, parterial;
-    private Button mBtnClearInput;
-    private ScrollView scrollView;
-    private CheckBox chkScroll;
-    private CheckBox chkReceiveText;
+    private TextView mTxtReceive, oxigeno, temperatura,fcardiaca, frespiratoria,  id_careta, preArtSistolica, preArtDiastolica;
+    private Handler handler;
 
-    private FileInputStream fis;
-    private FileOutputStream fos;
-    private InputStreamReader isr;
-    private BufferedReader bufferedReader;
-    private StringBuilder sb;
-    private String line;
+
 
     private boolean mIsBluetoothConnected = false;
 
@@ -69,15 +86,28 @@ public class Mediciones extends Activity {
 
     private ProgressDialog progressDialog;
 
-    private TextInputEditText id_careta;
+    private Button send;
 
+    private int progressBarStatus = 0;
+    private DatosRepository datosRepository;
+    private Handler progressBarHandler = new Handler();
+    ProgressDialog progressBar;
+    private long key = 0;
+
+    private String oxigenos;
+    private String frespiratorias;
+    private String temperaturas;
+    private String fcaridacas;
+    private String sistolica;
+    private String diastolica;
+    private  int user_value;
+    static int CODIGO_PERMISOS_BLUETOOTH = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signos);
         ActivityHelper.initialize(this);
-
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
         mDevice = b.getParcelable(devicelist.DEVICE_EXTRA);
@@ -86,46 +116,18 @@ public class Mediciones extends Activity {
         Log.d(TAG, "Ready");
         setContentView(R.layout.signos);
         mTxtReceive = (TextView) findViewById(R.id.txtReceive);
-       // chkScroll = (CheckBox) findViewById(R.id.chkScroll);
-       // chkReceiveText = (CheckBox) findViewById(R.id.chkReceiveText);
-       // scrollView = (ScrollView) findViewById(R.id.viewScroll);
-        //mBtnClearInput = (Button) findViewById(R.id.btnClearInput);
-        //mTxtReceive.setMovementMethod(new BaseMovementMethod());
-        id_careta = (TextInputEditText) findViewById(R.id.idPaciente);
-        oxigeno = (TextView) findViewById(R.id.oxigeno);
-        temperatura = (TextView) findViewById(R.id.temperatura);
-        fcardiaca = (TextView) findViewById(R.id.fcardiaca);
-        CO2 = (TextView) findViewById(R.id.CO2);
-        parterial = (TextView) findViewById(R.id.parterial);
-        frespiratoria = (TextView) findViewById(R.id.frespiratoria);
+        id_careta = (TextView) findViewById(R.id.activity_id_paciente);
+        oxigeno = (TextView) findViewById(R.id.activity_saturacion_oxigeno);
+        temperatura = (TextView) findViewById(R.id.activity_temperatura);
+        fcardiaca = (TextView) findViewById(R.id.activity_frec_cardiaca);
+        frespiratoria = (TextView) findViewById(R.id.activity_frec_respiratoria);
+        preArtSistolica = findViewById(R.id.activity_pres_art_sistolica);
+        preArtDiastolica = findViewById(R.id.activity_pres_art_diastolica);
+        send = findViewById(R.id.activity_comments_send_2);
+        datosRepository = DatosRepository.getInstance();
 
 
 
-
-    }
-
-    //write json
-    public void writeJSON() {
-        JSONObject object = new JSONObject();
-        Date c = Calendar.getInstance().getTime();
-        System.out.println("Current time => " + c);
-
-        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
-        String formattedDate = df.format(c);
-        try {
-            object.put("id_careta", new Integer(id_careta.getText().toString()));
-            object.put("fecha_medicion", c);
-            object.put("saturacion_oxigeno", new Double(oxigeno.getText().toString()));
-            object.put("temperatura", new Double(temperatura.getText().toString()));
-            object.put("frec_cardiaca", new Integer(fcardiaca.getText().toString()));
-            object.put("ferc_respiratoria", new Integer(frespiratoria.getText().toString()));
-            //TODO  PRESION ARTERIAL
-
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        System.out.println(object);
     }
 
 
@@ -136,6 +138,8 @@ public class Mediciones extends Activity {
         private boolean chkReceiveText = true;
         private static final String TAG = "MyActivity";
         private StringBuilder recDataString = new StringBuilder();
+        private OutputStream mmOutStream;
+        private byte[] mmBuffer; // mmBuffer store for the stream
 
         public ReadInput() {
             t = new Thread(this, "Input Thread");
@@ -148,12 +152,26 @@ public class Mediciones extends Activity {
 
         @Override
         public void run() {
+            send.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
             InputStream inputStream;
-
+            SharedPreferences sharedPref = getSharedPreferences("Datos",Context.MODE_PRIVATE);
+            user_value = sharedPref.getInt("ID_PACIENTE", 1);
+            Log.d("id_usuario",""+user_value);
             try {
+                String sbuffer = "-1";
+                byte[] bytes = sbuffer.toString().getBytes(Charset.defaultCharset());
+                write(bytes);
+
+
+
                 inputStream = mBTSocket.getInputStream();
                 while (!bStop) {
                     byte[] buffer = new byte[256];
+
+
+
                     if (inputStream.available() > 0) {
                         inputStream.read(buffer);
                         int i = 0;
@@ -164,9 +182,7 @@ public class Mediciones extends Activity {
                         recDataString.append(strInput[0]);
                         int endOfLineIndex = recDataString.indexOf("~");
                         String dataInPrint = recDataString.substring(0, endOfLineIndex);
-                        /*
-                         * If checked then receive text, better design would probably be to stop thread if unchecked and free resources, but this is a quick fix
-                         */
+
                         final int limite = 24;
                         if (strInput[0].charAt(0) == '#') {
                             mTxtReceive.post(new Runnable() {
@@ -178,116 +194,132 @@ public class Mediciones extends Activity {
                                         strInput[0] = strInput[0].replaceAll("~"," ");
 
                                         String[] value = strInput[0].split(",");
-                                        String oxigenos = value[0];
-                                        String frespiratorias = value[1];
-                                        String temperaturas = value[3];
-                                        String fcaridacas = value[4];
-                                        String parterials = value[5];
-                                        String CO2s = value[2];
-                                        //oxigeno.append(strInput);
-                                        //SystemClock.sleep(500);
-                                        oxigeno.append(oxigenos);
-                                        frespiratoria.append(frespiratorias);
-                                        temperatura.append(temperaturas);
-                                        fcardiaca.append(fcaridacas);
-                                        parterial.append(parterials);
-                                        CO2.append(CO2s);
 
-                                        f1 = getFileStreamPath(FILENAME);
-                                        if (oxigenos != "") { // existe go en el archivo
-                                            try {
-                                                Write(FILENAME,oxigenos,frespiratorias,temperaturas,fcaridacas,parterials,CO2s);
-                                            } catch (IOException e) {
-                                                e.printStackTrace();
-                                            }
-                                        }
+                                        oxigenos = value[0];
+                                        frespiratorias = value[1];
+                                        temperaturas = value[3];
+                                        fcaridacas = value[4];
+                                        sistolica = value[2];
 
-                                        Log.wtf(TAG,"VALUE: " + oxigenos+" length "+strInput[0].length());
-                                        Log.wtf(TAG,"CERO: "+ strInput[0]);
 
-                                    }
+
+
+                                                oxigeno.setText(oxigenos);
+                                                frespiratoria.setText(frespiratorias);
+                                                temperatura.setText(temperaturas);
+                                                fcardiaca.setText(fcaridacas);
+
+                                                id_careta.setText("" + user_value);
+                                                progressBar = new ProgressDialog(v.getContext(), R.style.MyAlertDialogStyle);
+                                                progressBar.setCancelable(false);
+                                                s = "Midiendo sus signos vitales, por favor no se quite el equipo (" + progressBarStatus + "%)";
+
+                                                //progressBar.setMessage("Midiendo sus signos vitales, por favor no se quite el equipo");
+                                                ss2 = new SpannableString(s);
+                                                ss2.setSpan(new RelativeSizeSpan(2f), 0, ss2.length(), 0);
+                                                ss2.setSpan(new ForegroundColorSpan(Color.WHITE), 0, ss2.length(), 0);
+                                                progressBar.setMessage(ss2);
+
+                                                progressBar.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                                                progressBar.setProgress(0);
+                                                progressBar.setMax(100);
+                                                progressBar.show();
+
+                                                //reset progress bar and filesize status
+                                                progressBarStatus = 0;
+                                                key = 0;
+
+                                                new Thread(new Runnable() {
+                                                    public void run() {
+                                                        while (progressBarStatus < 100) {
+                                                            // performing operation
+                                                            s = "Midiendo sus signos vitales, por favor no se quite el equipo (" + progressBarStatus + "%)";
+
+                                                            //progressBar.setMessage("Midiendo sus signos vitales, por favor no se quite el equipo");
+                                                            progressBarStatus = doOperation();
+                                                            ss2 = new SpannableString(s);
+                                                            ss2.setSpan(new RelativeSizeSpan(2f), 0, ss2.length(), 0);
+                                                            ss2.setSpan(new ForegroundColorSpan(Color.WHITE), 0, ss2.length(), 0);
+                                                            progressBar.setMessage(ss2);
+                                                            try {
+                                                                Thread.sleep(100);
+                                                            } catch (InterruptedException e) {
+                                                                e.printStackTrace();
+                                                            }
+                                                            // Updating the progress bar
+                                                            progressBarHandler.post(new Runnable() {
+                                                                public void run() {
+                                                                    progressBar.setProgress(progressBarStatus);
+                                                                }
+                                                            });
+                                                        }
+                                                        // performing operation if file is downloaded,
+                                                        if (progressBarStatus >= 100) {
+                                                            // sleeping for 1 second after operation completed
+                                                            try {
+                                                                Thread.sleep(1000);
+                                                            } catch (InterruptedException e) {
+                                                                e.printStackTrace();
+                                                            }
+                                                            // close the progress bar dialog
+                                                            progressBar.dismiss();
+                                                        }
+                                                    }
+                                                }).start();
+
+                                    } //longitud
                                     else {
-                                        Log.wtf(TAG,"VALUE: "+ "AAAA");
-                                        Log.wtf(TAG,"TODO: "+ strInput);
                                         Log.wtf(TAG,"CERO: "+ strInput[0]);
-
-
                                     }
 
-/*
-                                    int txtLength = mTxtReceive.getEditableText().length();
-                                    if(txtLength > mMaxChars){
-                                        mTxtReceive.getEditableText().delete(0, txtLength - mMaxChars);
-                                    }
-*/
+                                } //run
 
+                            }); //receive
+                        } //if string
+                    } // input > 0
 
-
-                                }
-
-                            });
-
-                            /*
-                            new Timer().schedule(new TimerTask() {
-                                @Override
-                                public void run() {
-                                    mTxtReceive.setText(""); // this code will be executed after 2 seconds
-                                }
-                            }, 1000);
-                            */
-                        }
-
-
-                    }
-
-
-                    Thread.sleep(500);
-
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            /*
-                            f = getFileStreamPath(FILENAME);
-                            if (f.length() != 0) {
-                                sb =Read(f1,FILENAME);
-                                String[] parts = sb.toString().split(",");
-                                oxigeno.setText(parts[0]);
-                                frespiratoria.setText(parts[1]);
-                                temperatura.setText(parts[2]);
-                                fcardiaca.setText(parts[3]);
-                                parterial.setText(parts[4]);
-                                CO2.setText(parts[5]);
-                            }
-                            else { */
-                                oxigeno.setText("");
-                                frespiratoria.setText("");
-                                temperatura.setText("");
-                                fcardiaca.setText("");
-                                parterial.setText("");
-                                CO2.setText("");
-                                // mTxtReceive.setText("");
-                            //}
-                        }
-                    });
 
                     //
-                }
+                } // while
+
+
+
             } catch (IOException e) {
 // TODO Auto-generated catch block
                 e.printStackTrace();
-            } catch (InterruptedException e) {
-// TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-            catch (StringIndexOutOfBoundsException e){
+            } catch (StringIndexOutOfBoundsException e){
                 Log.wtf(TAG,"VALUE: "+ "Out of bounds");
                 Log.wtf(TAG,"VALUE: "+ mTxtReceive);
                 e.printStackTrace();
 
                 ;
             }
+                }
+            });
 
 
+        }
+
+        public void write(byte[] bytes) {
+            try {
+                mmOutStream.write(bytes);
+
+                // Share the sent message with the UI activity.
+                Message writtenMsg = handler.obtainMessage(
+                        1, -1, -1, mmBuffer);
+                writtenMsg.sendToTarget();
+            } catch (IOException e) {
+                Log.e(TAG, "Error occurred when sending data", e);
+
+                // Send a failure message back to the activity.
+                Message writeErrorMsg =
+                        handler.obtainMessage(2);
+                Bundle bundle = new Bundle();
+                bundle.putString("toast",
+                        "Couldn't send data to the other device");
+                writeErrorMsg.setData(bundle);
+                handler.sendMessage(writeErrorMsg);
+            }
         }
 
         public void stop() {
@@ -296,41 +328,9 @@ public class Mediciones extends Activity {
 
     }
 
-/*
-    void runOnUiThread(new Runnable()) {
-        @Override
-        public void run() {
-            //Cambiar controles
-        }
-    });*/
 
-    public void Write(String fileName, String text, String text2, String text3, String text4, String text5, String text6) throws IOException {
-        String claves = text + "," + text2+ "," + text3+ "," + text4+ "," + text5+ "," + text6;
-        fos = openFileOutput(fileName, Context.MODE_PRIVATE);
-        fos.write(claves.getBytes());
-        fos.close();
 
-    }
 
-    public StringBuilder Read(File file,String fileName) {
-        try {
-            fis = openFileInput(fileName);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        //se obtiene la información
-        isr = new InputStreamReader(fis);
-        bufferedReader = new BufferedReader(isr);
-        sb = new StringBuilder();
-        try {
-            while ((line = bufferedReader.readLine()) != null) {
-                sb.append(line); // se le qu tiee el archivo;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return sb;
-    }
 
     private class DisConnectBT extends AsyncTask<Void, Void, Void> {
 
@@ -364,6 +364,12 @@ public class Mediciones extends Activity {
             super.onPostExecute(result);
             mIsBluetoothConnected = false;
             if (mIsUserInitiatedDisconnect) {
+                Toast.makeText(getApplicationContext(), "No se pudo conectar.", Toast.LENGTH_LONG).show();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 finish();
             }
         }
@@ -409,7 +415,7 @@ public class Mediciones extends Activity {
 
         @Override
         protected void onPreExecute() {
-            progressDialog = ProgressDialog.show(Mediciones.this, "Espera", "Conectando");// http://stackoverflow.com/a/11130220/1287554
+            progressDialog = ProgressDialog.show(Mediciones.this, "Espera", "Conectando");
         }
 
         @Override
@@ -422,7 +428,6 @@ public class Mediciones extends Activity {
                     mBTSocket.connect();
                 }
             } catch (IOException e) {
-// Unable to connect to device
                 e.printStackTrace();
                 mConnectSuccessful = false;
             }
@@ -435,6 +440,11 @@ public class Mediciones extends Activity {
 
             if (!mConnectSuccessful) {
                 Toast.makeText(getApplicationContext(), "No se pudo conectar.", Toast.LENGTH_LONG).show();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 finish();
             } else {
                 msg("Conectado");
@@ -446,4 +456,45 @@ public class Mediciones extends Activity {
         }
 
     }
+
+    public int doOperation() {
+        while (key < 5) {
+            datosRepository = DatosRepository.getInstance();
+
+            Datos d1 = new Datos(
+                    Integer.parseInt(id_careta.getText().toString()),
+                    Float.parseFloat(oxigeno.getText().toString()),
+                    Float.parseFloat(temperatura.getText().toString()),
+                    0,
+                    Integer.parseInt(fcardiaca.getText().toString()),
+                    Integer.parseInt(frespiratoria.getText().toString()),
+                    false,
+                    0,
+                    0
+            );
+
+            datosRepository.getCommentsService().createComment(d1).enqueue(new Callback<Datos>() {
+
+
+                @SuppressLint("ResourceType")
+                @Override
+                public void onResponse(Call<Datos> call, Response<Datos> r) {
+
+                    Toast toast = Toast.makeText(getApplicationContext(), "Por favor mantenga la misma postura", Toast.LENGTH_SHORT);
+                    TextView toastMessage = (TextView) toast.getView().findViewById(android.R.id.message);
+                    toast.show();
+                }
+
+                @Override
+                public void onFailure(Call<Datos> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(), "Error de envío de datos ", Toast.LENGTH_SHORT).show();
+                }
+            });
+            key++;
+            return (int) ((100/5)*key);
+
+        }
+        return 100;
+    }
+
 }
