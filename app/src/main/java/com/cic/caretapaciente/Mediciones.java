@@ -1,28 +1,17 @@
 package com.cic.caretapaciente;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageManager;
+
 import android.graphics.Color;
 import android.os.Bundle;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.nio.charset.Charset;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
+
 import java.util.UUID;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -39,28 +28,12 @@ import android.text.style.RelativeSizeSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
-import com.google.android.material.textfield.TextInputEditText;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import okhttp3.Request;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+
 
 public class Mediciones extends Activity {
 
@@ -200,6 +173,7 @@ public class Mediciones extends Activity {
                                         temperaturas = value[3];
                                         fcaridacas = value[4];
                                         sistolica = value[2];
+                                        diastolica = value[5];
 
 
 
@@ -208,8 +182,10 @@ public class Mediciones extends Activity {
                                                 frespiratoria.setText(frespiratorias);
                                                 temperatura.setText(temperaturas);
                                                 fcardiaca.setText(fcaridacas);
+                                        preArtSistolica.setText(diastolica);
+                                        preArtDiastolica.setText(sistolica);
 
-                                                id_careta.setText("" + user_value);
+                                        id_careta.setText("" + user_value);
                                                 progressBar = new ProgressDialog(v.getContext(), R.style.MyAlertDialogStyle);
                                                 progressBar.setCancelable(false);
                                                 s = "Midiendo sus signos vitales, por favor no se quite el equipo (" + progressBarStatus + "%)";
@@ -469,8 +445,8 @@ public class Mediciones extends Activity {
                     Integer.parseInt(fcardiaca.getText().toString()),
                     Integer.parseInt(frespiratoria.getText().toString()),
                     false,
-                    0,
-                    0
+                    Integer.parseInt(preArtSistolica.getText().toString()),
+                    Integer.parseInt(preArtDiastolica.getText().toString())
             );
 
             datosRepository.getCommentsService().createComment(d1).enqueue(new Callback<Datos>() {
